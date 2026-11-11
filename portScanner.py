@@ -24,7 +24,6 @@ def scan_port(ipadress,port):
   except:
       pass
 
-
 targets = input('[+] Enter target/s to scan(multiple targests with ,) : ')
 if ',' in targets:
     for ip_add in targets.split(','):
