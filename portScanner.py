@@ -1,19 +1,26 @@
 import socket
 from IPy import IP
 
-port = 80
+def checkIp(ip) :
+    try:
+        IP(ip)
+        return(ip)
+    except ValueError:
+        return socket.gethostbyname(ip)
 
 def scan_port(ipadress,port):
   try:
        sock = socket.socket()
+       sock.settimeout(0.5)
        sock.connect((ipadress, port))
        print('[+] Port ' + str(port) + ' is open :')
   except:
-       print('[+] Port '+ str(port) +'not available :')
+       print('[+] Port '+ str(port) +' not available :')
 
 
 ipadress = input('[+] Enter target to scan : ')
+ip_converted = checkIp(ipadress)
 
 
-for port in range(1,10):
-    scan_port(ipadress,port)
+for port in range(75,85):
+    scan_port(ip_converted,port)
