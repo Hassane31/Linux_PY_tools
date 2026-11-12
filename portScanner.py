@@ -7,6 +7,9 @@ def get_banner(s):
     return s.recv(1024)
 
 
+
+
+
 def checkIp(ip) :
     try:
         IP(ip)
@@ -17,7 +20,7 @@ def checkIp(ip) :
 def scan(target):
     ip_converted = checkIp(target)
     print('\n[-_0 Scanning target '+ str(target)+' :')
-    for port in range(1, 100):
+    for port in range(1, 500):
         scan_port(ip_converted, port)
 
 def scan_port(ipadress,port):
