@@ -1,12 +1,8 @@
 import socket
 from IPy import IP
 
-
-
 def get_banner(s):
     return s.recv(1024)
-
-
 
 
 
@@ -20,7 +16,7 @@ def checkIp(ip) :
 def scan(target):
     ip_converted = checkIp(target)
     print('\n[-_0 Scanning target '+ str(target)+' :')
-    for port in range(1, 500):
+    for port in range(1, 100):
         scan_port(ip_converted, port)
 
 def scan_port(ipadress,port):
@@ -36,10 +32,12 @@ def scan_port(ipadress,port):
   except:
       pass
 
-targets = input('[+] Enter target/s to scan(multiple targests with ,) : ')
-if ',' in targets:
-    for ip_add in targets.split(','):
-        scan(ip_add.strip('  '))
-else:
-    scan(targets)
+
+if __name__ == '__main__':
+  targets = input('[+] Enter target/s to scan(multiple targests with ,) : ')
+  if ',' in targets:
+      for ip_add in targets.split(','):
+          scan(ip_add.strip('  '))
+  else:
+      scan(targets)
 
